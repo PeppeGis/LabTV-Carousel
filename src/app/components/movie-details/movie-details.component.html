@@ -1,0 +1,43 @@
+<div class="wrapper">
+    <div class="main_card">
+        <div class="details_container">
+            <div class="trailer-container">
+                <iframe [src]="trailerService.sanitizeUrl(keyYT)" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="container">
+                <div class="row card_datails">
+                    <div class="col-8">
+                        <!-- <p>ID: {{detailsMovie?.id}}</p> -->
+                        <h1>{{detailsMovie?.title}}</h1>
+                        <p class="lh-lg">{{detailsMovie?.overview}}</p>
+                    </div>
+                    <div class="col-4">
+                        <h4>Cast:</h4>
+                        <p *ngFor="let cast of acting" class="mb-1 font-italic">{{cast.name}}</p>
+                        <h4 class="mt-4">Director: </h4>
+                        <p class="mb-1 font-italic">{{directing}}</p>
+                        <h4 class="mt-4">Genres:</h4>
+                        <p *ngFor="let genre of genres" class="mb-1 font-italic">{{genre.name}}</p>
+                        <div class="button">
+                            <button>
+                                <i></i> BUY
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <h4 class="mt-4 mb-4 text-center">Similar: </h4>
+                <div class="d-flex justify-content-center mb-3">
+                    <div *ngFor="let result of similarMovies">
+                        <div class="container">
+                            <div class="row">
+                                <img src="{{baseUrlImg}}{{result.poster_path}}" class="poster" alt="Cover not available
+                                " />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
