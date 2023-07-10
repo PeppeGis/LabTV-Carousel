@@ -1,7 +1,7 @@
-<p-carousel [value]="moviesService.topRated" [numVisible]="5" [numScroll]="1" [circular]="true"
+<p-carousel [value]="moviesService.topRated" [numVisible]="7" [numScroll]="1" [circular]="true"
     [responsiveOptions]="sliderResponsive" [showIndicators]="false">
     <ng-template let-topRated pTemplate="item">
-        <div class="border-1 surface-border border-round m-2 text-center py-5 px-3">
+        <div class="border-1 surface-border border-round m-2 text-center">
             <div class="mb-3">
                 <img src="{{baseUrlImg}}{{topRated.poster_path}}" [alt]="topRated.title"
                     class="w-6 shadow-2 card-img-top" (click)="goToDetails(topRated)" />

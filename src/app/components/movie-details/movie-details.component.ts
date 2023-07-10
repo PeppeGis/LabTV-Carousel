@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Cast, Genre, Movie } from 'src/app/models/movie';
 import { Result } from 'src/app/models/similar-movies';
 import { Trailer } from 'src/app/models/trailer';
@@ -13,7 +13,7 @@ import { TrailerService } from 'src/app/services/trailer/trailer.service';
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent {
-  constructor(protected trailerService: TrailerService, private route: ActivatedRoute, private moviesService: MovieService, private similarMoviesService: SimilarMoviesService) { }
+  constructor(protected trailerService: TrailerService, private route: Router, private moviesService: MovieService, private similarMoviesService: SimilarMoviesService) { }
 
   trailer?: Trailer
   keyYT?: any
@@ -22,6 +22,8 @@ export class MovieDetailsComponent {
   acting: Array<Cast> = []
   directing?: string
   similarMovies: Array<Result> = []
+
+  sliderResponsive: any[] | undefined;
 
   baseUrlImg = 'http://image.tmdb.org/t/p/w185';
 
@@ -35,6 +37,29 @@ export class MovieDetailsComponent {
     //   }
     // })
     this.getAllDetailsMovie()
+
+    this.sliderResponsive = [
+      {
+        breakpoint: '1500px',
+        numVisible: 4,
+        numScroll: 1
+      },
+      {
+        breakpoint: '1200px',
+        numVisible: 3,
+        numScroll: 1
+      },
+      {
+        breakpoint: '950px',
+        numVisible: 2,
+        numScroll: 1
+      },
+      {
+        breakpoint: '700px',
+        numVisible: 1,
+        numScroll: 1
+      }
+    ];
   }
 
   getAllDetailsMovie = () => {
@@ -87,11 +112,16 @@ export class MovieDetailsComponent {
   toSimilarMovies = (id: any) => {
     this.similarMoviesService.getSimilarMovies(id).subscribe({
       next: (data: any) => {
-        const similarMovies = data.results.map((movie: any) => movie).slice(0, 5)
+        const similarMovies = data.results.map((movie: any) => movie).slice(0, 10)
         if (similarMovies) {
           this.similarMovies = similarMovies
         }
       }
     })
+  }
+
+  goToDetails = (movie: Movie) => {
+    this.moviesService.filmToShow$.next(movie)
+    this.route.navigateByUrl('/movie-details')
   }
 }

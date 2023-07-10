@@ -28,7 +28,18 @@
                     </div>
                 </div>
                 <h4 class="mt-4 mb-4 text-center">Similar: </h4>
-                <div class="d-flex justify-content-center mb-3">
+                <p-carousel [value]="similarMovies" [numVisible]="5" [numScroll]="1" [circular]="true"
+                    [responsiveOptions]="sliderResponsive" [showIndicators]="false">
+                    <ng-template let-similarMovies pTemplate="item">
+                        <div class="border-1 surface-border border-round m-2 text-center">
+                            <div class="mb-3">
+                                <img src="{{baseUrlImg}}{{similarMovies.poster_path}}" [alt]="similarMovies.title"
+                                    class="w-6 shadow-2 card-img-top" (click)="goToDetails(similarMovies)" />
+                            </div>
+                        </div>
+                    </ng-template>
+                </p-carousel>
+                <!-- <div class="d-flex justify-content-center mb-3">
                     <div *ngFor="let result of similarMovies">
                         <div class="container">
                             <div class="row">
@@ -37,7 +48,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
