@@ -13,34 +13,10 @@ export class SliderPopularComponent {
 
   constructor(public moviesService: MovieService, private router: Router) { }
 
-  sliderResponsive: any[] | undefined;
   baseUrlImg = 'http://image.tmdb.org/t/p/original'
 
   ngOnInit(): void {
     this.getPopular()
-
-    this.sliderResponsive = [
-      {
-        breakpoint: '1500px',
-        numVisible: 4,
-        numScroll: 1
-      },
-      {
-        breakpoint: '1200px',
-        numVisible: 3,
-        numScroll: 1
-      },
-      {
-        breakpoint: '950px',
-        numVisible: 2,
-        numScroll: 1
-      },
-      {
-        breakpoint: '700px',
-        numVisible: 1,
-        numScroll: 1
-      }
-    ];
   }
 
   getPopular = () => {

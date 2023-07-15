@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Cast, Genre, Movie } from 'src/app/models/movie';
 import { Result } from 'src/app/models/similar-movies';
 import { Trailer } from 'src/app/models/trailer';
+import { BuyMovieService } from 'src/app/services/buy-movie/buy-movie.service';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { SimilarMoviesService } from 'src/app/services/similar-movies/similar-movies.service';
 import { TrailerService } from 'src/app/services/trailer/trailer.service';
@@ -13,7 +14,7 @@ import { TrailerService } from 'src/app/services/trailer/trailer.service';
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent {
-  constructor(protected trailerService: TrailerService, private route: Router, private moviesService: MovieService, private similarMoviesService: SimilarMoviesService) { }
+  constructor(protected trailerService: TrailerService, private route: Router, private moviesService: MovieService, private similarMoviesService: SimilarMoviesService, private buyMovies: BuyMovieService) { }
 
   trailer?: Trailer
   keyYT?: any
@@ -123,5 +124,16 @@ export class MovieDetailsComponent {
   goToDetails = (movie: Movie) => {
     this.moviesService.filmToShow$.next(movie)
     this.route.navigateByUrl('/movie-details')
+  }
+
+  buyMovie = (movie: Movie) => {
+    console.log(movie)
+    this.buyMovies.postMedia(movie).subscribe({
+      next: (data: Movie[]) => {
+        console.log('movie post', data);
+      },
+      error: err => console.log('errore', err)
+
+    })
   }
 }

@@ -1,9 +1,15 @@
+$color_1: #fff;
+$color_2: #000;
+
+/* .poster {
+    box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
+} */
 .wrapper {
     background: #222222;
 }
 
 .main_card {
-    color: #fff;
+    color: $color_1;
     width: 60%;
     height: 100%;
     margin: 0 auto;
@@ -15,6 +21,10 @@
 
 .card_datails {
     padding: 20px;
+
+    h1 {
+        font-size: 30px;
+    }
 }
 
 .trailer-container {
@@ -22,14 +32,9 @@
     overflow: hidden;
     width: 100%;
     padding-top: 56.25%;
-    /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
 }
 
 iframe {
-    /* display: block;
-    width: 80%;
-    height: 350px;
-    margin: 20px auto; */
     position: absolute;
     top: 0;
     left: 0;
@@ -39,14 +44,10 @@ iframe {
     height: 100%;
 }
 
-.card_datails h1 {
-    font-size: 30px;
-}
-
 button {
     max-width: 100px;
     width: 80px;
-    color: #000;
+    color: $color_2;
     font-weight: bold;
     border: none;
     padding: 10px;
@@ -58,10 +59,10 @@ button {
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     transition: 200ms ease-in-out;
-}
 
-button:hover {
-    transform: scale(1.1);
+    &:hover {
+        transform: scale(1.1);
+    }
 }
 
 .button {
@@ -69,6 +70,6 @@ button:hover {
     justify-content: left;
 }
 
-/* .poster {
-    box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
-} */
+img.similar {
+    cursor: pointer;
+}

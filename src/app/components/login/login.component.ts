@@ -23,16 +23,9 @@ export class LoginComponent {
   }
 
   onSubmit = (form: FormGroup) => {
-    const body =
-    {
-      email: form.value.email,
-      password: form.value.password
-    }
-
-    if (form.valid) {
-      this.logRegService.login(body)
-      this.loginForm.reset()
-      // this.route.navigateByUrl('/dashboard')
-    }
+    this.logRegService.login(this.loginForm.getRawValue()).subscribe(user => {
+      this.logRegService.setLoggedUser(user)
+      this.route.navigateByUrl('/dashboard-logged')
+    })
   }
 }

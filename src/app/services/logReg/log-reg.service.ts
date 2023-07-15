@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
-import { User } from 'src/app/models/user';
+import { Observable, Subject } from 'rxjs';
+import { LoggedUser, LoginDto, RegisterDto, User } from 'src/app/models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -10,33 +10,28 @@ export class LogRegService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:3000/users'
-
-  user: User
+  url = 'http://localhost:3000/'
 
   token$ = new Subject
 
-  register = (body: any) => {
-    return this.http.post<User[]>(this.url, body).subscribe({
-      next: (data: any) => {
-        this.token$ = data.accessToken
-        // console.log(this.token$)
-      }
-    })
+  register = (user: RegisterDto): Observable<LoggedUser> => {
+    return this.http.post<LoggedUser>(this.url + "users", user)
   }
 
-  login = (body: any) => {
-    return this.http.post<User[]>(this.url, body).subscribe({
-      next: (data: any) => {
-        this.token$ = data.accessToken
-        // console.log(this.token$)
-      }
-    })
+  login = (user: LoginDto): Observable<LoggedUser> => {
+    return this.http.post<LoggedUser>(this.url + "login", user)
   }
 
-  httpOptions: any = {
-    headers: new HttpHeaders(
-      `{Authorization' 'Bearer ${this.token$}}`
-    )
+  setLoggedUser = (user: LoggedUser) => {
+    localStorage.setItem('user', JSON.stringify(user))
+  }
+
+  getLoggedUser = (): LoggedUser | null => {
+    const userStorage = localStorage.getItem("user")
+    if (userStorage) {
+      return JSON.parse(userStorage) as LoggedUser
+    }
+
+    return null
   }
 }

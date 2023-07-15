@@ -21,7 +21,7 @@
                         <h4 class="mt-4">Genres:</h4>
                         <p *ngFor="let genre of genres" class="mb-1 font-italic">{{genre.name}}</p>
                         <div class="button">
-                            <button>
+                            <button (click)="buyMovie(detailsMovie)">
                                 <i></i> BUY
                             </button>
                         </div>
@@ -34,7 +34,7 @@
                         <div class="border-1 surface-border border-round m-2 text-center">
                             <div class="mb-3">
                                 <img src="{{baseUrlImg}}{{similarMovies.poster_path}}" [alt]="similarMovies.title"
-                                    class="w-6 shadow-2 card-img-top" (click)="goToDetails(similarMovies)" />
+                                    class="w-6 shadow-2 card-img-top similar" (click)="goToDetails(similarMovies)" />
                             </div>
                         </div>
                     </ng-template>

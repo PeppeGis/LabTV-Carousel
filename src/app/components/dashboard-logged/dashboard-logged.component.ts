@@ -12,6 +12,18 @@ export class DashboardLoggedComponent {
 
   constructor(private moviesService: MovieService, private route: Router) { }
 
+  toAllNowPlaying = () => {
+    this.route.navigate(['/now-playing'])
+  }
+
+  toAllTopRated = () => {
+    this.route.navigate(['/top-rated'])
+  }
+
+  toAllUpcoming = () => {
+    this.route.navigate(['/upcoming'])
+  }
+
   details = (film: Movie) => {
     this.moviesService.filmToShow$.next(film)
     this.route.navigateByUrl("/movie-details")

@@ -8,12 +8,18 @@ import { UnauthorizedComponent } from './components/unauthorized/unauthorized.co
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { DashboardLoggedComponent } from './components/dashboard-logged/dashboard-logged.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { AllNowPlayingComponent } from './components/all-now-playing/all-now-playing.component';
+import { AllTopRatedComponent } from './components/all-top-rated/all-top-rated.component';
+import { AllUpcomingComponent } from './components/all-upcoming/all-upcoming.component';
 
 const routes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "dashboard-logged", component: DashboardLoggedComponent },
   { path: "search-results", component: SearchResultsComponent },
   { path: "movie-details", component: MovieDetailsComponent },
+  { path: "now-playing", component: AllNowPlayingComponent },
+  { path: "top-rated", component: AllTopRatedComponent },
+  { path: "upcoming", component: AllUpcomingComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },

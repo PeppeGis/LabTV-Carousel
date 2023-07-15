@@ -1,3 +1,45 @@
+.card-hover {
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px;
+
+
+    &:hover img {
+        filter: blur(5px);
+        transform: scale(1.3);
+    }
+
+    &:hover .content-details {
+        opacity: 1;
+    }
+}
+
 img {
     cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.220);
+    transition: .4s;
+
+    // &:hover {
+    //     box-shadow: 0 10px 20px rgba(255, 255, 255, 0.320);
+    // }
+}
+
+.content-details {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+
+    & p {
+        cursor: pointer;
+        color: #fff;
+    }
+
+    & p:nth-of-type(2) {
+        font-size: 1.4em;
+        font-weight: bold;
+    }
 }
