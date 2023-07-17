@@ -11,17 +11,22 @@ import { SearchResultsComponent } from './components/search-results/search-resul
 import { AllNowPlayingComponent } from './components/all-now-playing/all-now-playing.component';
 import { AllTopRatedComponent } from './components/all-top-rated/all-top-rated.component';
 import { AllUpcomingComponent } from './components/all-upcoming/all-upcoming.component';
+import { loggedInGuard } from './guards/logged-in.guard';
+import { CartComponent } from './components/cart/cart.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 const routes: Routes = [
   { path: "dashboard", component: DashboardComponent },
-  { path: "dashboard-logged", component: DashboardLoggedComponent },
+  { path: "dashboard-logged", component: DashboardLoggedComponent, canActivate: [loggedInGuard] },
   { path: "search-results", component: SearchResultsComponent },
-  { path: "movie-details", component: MovieDetailsComponent },
+  { path: "movie-details", component: MovieDetailsComponent, canActivate: [loggedInGuard] },
   { path: "now-playing", component: AllNowPlayingComponent },
   { path: "top-rated", component: AllTopRatedComponent },
   { path: "upcoming", component: AllUpcomingComponent },
   { path: "login", component: LoginComponent },
   { path: "register", component: RegisterComponent },
+  { path: "cart", component: CartComponent, canActivate: [loggedInGuard] },
+  { path: "contacts", component: ContactsComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: '', redirectTo: '/dashboard-logged', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }

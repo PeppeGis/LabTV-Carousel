@@ -1,0 +1,48 @@
+$color_1: #fff;
+$background-color_1: #f40612;
+
+.wrapper {
+    &::before {
+        content: "";
+        background: url(../../../assets/img/home.jpg) no-repeat center center/cover;
+        position: absolute;
+        min-height: calc(100vh - 72px);
+        width: 100%;
+        opacity: 0.3;
+        z-index: -1;
+    }
+
+    .title {
+        padding: 70px 45px;
+
+        .content {
+            width: 950px;
+            margin: auto;
+            padding: 75px 0;
+            text-align: center;
+
+            h1 {
+                width: 650px;
+                margin: auto;
+                font-size: 3.1rem;
+                text-align: center;
+                color: $color_1;
+            }
+
+            h2 {
+                width: 650px;
+                margin: auto;
+                font-size: 1.6rem;
+                text-align: center;
+                color: $color_1;
+            }
+
+            h3 {
+                font-size: 1rem;
+                margin: 18px 0;
+                text-align: center;
+                color: $color_1;
+            }
+        }
+    }
+}

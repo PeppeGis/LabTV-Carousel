@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   constructor(private logRegService: LogRegService, private route: Router) { }
 
   registerForm: FormGroup
+  messageError: string = ''
 
   ngOnInit(): void {
     this.registerForm = new FormGroup({
@@ -21,7 +22,8 @@ export class RegisterComponent implements OnInit {
       lastname: new FormControl(null, Validators.required),
       email: new FormControl(null, [Validators.required, Validators.email]),
       // password: new FormControl(null, Validators.pattern['(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}'])
-      password: new FormControl(null, Validators.required)
+      password: new FormControl(null, [Validators.required, Validators.minLength(6), Validators.maxLength(16)]),
+      privacy: new FormControl(null, Validators.required)
     })
   }
 
@@ -31,15 +33,17 @@ export class RegisterComponent implements OnInit {
       firstname: form.value.firstname,
       lastname: form.value.lastname,
       email: form.value.email,
-      password: form.value.password
+      password: form.value.password,
+      privacy: form.value.privacy
     }
 
     this.logRegService.register(body).subscribe({
       next: (data: LoggedUser) => {
-        console.log(data);
-      }
+        // console.log(data);
+        this.registerForm.reset()
+        this.route.navigateByUrl('/login')
+      },
+      error: err => this.messageError = err.error
     })
-    this.registerForm.reset()
-    this.route.navigateByUrl('/login')
   }
 }

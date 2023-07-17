@@ -1,0 +1,58 @@
+<div id="contact" class="contact-area section-padding">
+    <div class="container">
+        <div class="section-title text-center">
+            <h1>How can we help you?</h1>
+        </div>
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="contact">
+                    <form [formGroup]="contactForm" class="form">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <input type="text" name="name" class="form-control" placeholder="Name"
+                                    formControlName="name">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <input type="email" name="email" class="form-control" placeholder="Email"
+                                    formControlName="email">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <input type="text" name="subject" class="form-control" placeholder="Subject"
+                                    formControlName="subject">
+                            </div>
+                            <div class="form-group col-md-12">
+                                <textarea rows="6" name="message" class="form-control" placeholder="Your Message"
+                                    formControlName="message"></textarea>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <button type="submit" value="Send message" name="submit" id="submitButton"
+                                    class="btn btn-contact-bg" title="Submit Your Message!">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="single_address">
+                    <i class="bi bi-signpost"></i>
+                    <h4>Address</h4>
+                    <p>Via Pasquale Revoltella 85, 00152 Roma</p>
+                </div>
+                <div class="single_address">
+                    <i class="bi bi-chat-dots"></i>
+                    <h4>Send your message</h4>
+                    <p>info@labfortraining.it </p>
+                </div>
+                <div class="single_address">
+                    <i class="bi bi-telephone-forward"></i>
+                    <h4>Call us on</h4>
+                    <p>06.58205135</p>
+                </div>
+                <div class="single_address">
+                    <i class="bi bi-clock"></i>
+                    <h4>Work Time</h4>
+                    <p>Mon - Fri: 9:30 - 18.30</p>
+                </div>
+            </div>
+        </div>
+    </div>

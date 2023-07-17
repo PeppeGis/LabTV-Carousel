@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { LogRegService } from 'src/app/services/logReg/log-reg.service';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { SearchBarService } from 'src/app/services/search-bar/search-bar.service';
 
@@ -10,7 +11,7 @@ import { SearchBarService } from 'src/app/services/search-bar/search-bar.service
 })
 export class HeaderComponent {
 
-  constructor(private searchService: SearchBarService, private route: Router, private moviesService: MovieService) {
+  constructor(private searchService: SearchBarService, private route: Router, private moviesService: MovieService, public logRegService: LogRegService) {
   }
 
   // @Input() movie: Movie
@@ -31,6 +32,11 @@ export class HeaderComponent {
   }
 
   toLogin = () => {
+    this.route.navigateByUrl('login')
+  }
+
+  toLogout = () => {
+    this.logRegService.logout()
     this.route.navigateByUrl('login')
   }
 

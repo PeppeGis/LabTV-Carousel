@@ -29,7 +29,7 @@
                         </div>
 
                         <label for="privacy" class="form-text text-muted mb-3">
-                            <input type="checkbox" name="privacy" id="privacy">
+                            <input type="checkbox" name="privacy" id="privacy" formControlName="privacy">
                             <span class="check"></span>
                             Accetta l'informativa sulla privacy</label>
 
@@ -39,6 +39,7 @@
                             </button>
                         </div>
                     </form>
+                    <h6 class="mt-5 text-danger font-weight-bold">{{messageError}}</h6>
                 </div>
                 <div class="card-footer py-3 border-0">
                     <div class="text-center">

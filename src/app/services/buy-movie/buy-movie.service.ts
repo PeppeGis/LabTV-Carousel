@@ -20,12 +20,21 @@ export class BuyMovieService {
 
   postMedia = (movie: Movie): Observable<Movie[]> => {
     const loggedUser = this.logRegService.getLoggedUser()
+    const body = {
+      id: movie.id,
+      cover: movie.poster_path,
+      title: movie.title
+    }
 
     if (loggedUser) {
 
-      return this.http.post<Movie[]>(this.url + 'films-acquistati', movie)
+      return this.http.post<Movie[]>(this.url + 'films-acquistati', body)
     }
     this.router.navigate(['/login'])
     return of([])
+  }
+
+  deleteMovie = (id: any) => {
+    return this.http.delete(`${this.url}films-acquistati/${id}`)
   }
 }

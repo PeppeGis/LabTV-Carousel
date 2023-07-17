@@ -5,3 +5,31 @@
         cursor: pointer;
     }
 }
+
+.bi {
+    font-size: 25px;
+    transition: .3s;
+}
+
+a {
+    cursor: pointer;
+}
+
+.dropdown-menu i {
+    margin-right: 8px;
+}
+
+button {
+    width: 40px;
+    margin-left: 5px;
+    border: none;
+    background-color: transparent;
+
+    &:hover .bi {
+        font-size: 28px;
+    }
+
+    &:focus {
+        outline: none !important;
+    }
+}

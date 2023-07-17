@@ -25,8 +25,9 @@ import { CardSearchResultsComponent } from './components/card-search-results/car
 import { AllNowPlayingComponent } from './components/all-now-playing/all-now-playing.component';
 import { AllTopRatedComponent } from './components/all-top-rated/all-top-rated.component';
 import { AllUpcomingComponent } from './components/all-upcoming/all-upcoming.component';
-import { LogRegService } from './services/logReg/log-reg.service';
 import { LoginInterceptor } from './interceptor/login.interceptor';
+import { CartComponent } from './components/cart/cart.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,9 @@ import { LoginInterceptor } from './interceptor/login.interceptor';
     CardSearchResultsComponent,
     AllNowPlayingComponent,
     AllTopRatedComponent,
-    AllUpcomingComponent
+    AllUpcomingComponent,
+    CartComponent,
+    ContactsComponent
   ],
   imports: [
     BrowserModule,

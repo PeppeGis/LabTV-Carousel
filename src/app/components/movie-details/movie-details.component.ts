@@ -102,9 +102,12 @@ export class MovieDetailsComponent {
   getTrailer = (id: any) => {
     this.trailerService.getUrlTrailer(id).subscribe({
       next: (data: any) => {
-        const TrailerVideo = data.results.find((video: any) => video.name === "Official Trailer");
-        if (TrailerVideo) {
-          this.keyYT = TrailerVideo.key;
+        const officialTrailerVideo = data.results.find((video: any) => video.name === "Official Trailer")
+        if (officialTrailerVideo) {
+          this.keyYT = officialTrailerVideo.key;
+        } else if (!officialTrailerVideo) {
+          const TrailerVideo = data.results.find((video: any) => video.name.toLowerCase().includes("trailer"))
+          this.keyYT = TrailerVideo.key
         }
       }
     })
@@ -132,7 +135,7 @@ export class MovieDetailsComponent {
       next: (data: Movie[]) => {
         console.log('movie post', data);
       },
-      error: err => console.log('errore', err)
+      error: err => this.route.navigateByUrl('/unauthorized')
 
     })
   }

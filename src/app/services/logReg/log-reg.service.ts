@@ -12,6 +12,8 @@ export class LogRegService {
 
   url = 'http://localhost:3000/'
 
+  loginStatus = false
+
   token$ = new Subject
 
   register = (user: RegisterDto): Observable<LoggedUser> => {
@@ -22,8 +24,14 @@ export class LogRegService {
     return this.http.post<LoggedUser>(this.url + "login", user)
   }
 
+  logout = () => {
+    localStorage.removeItem('user')
+    this.loginStatus = false
+  }
+
   setLoggedUser = (user: LoggedUser) => {
     localStorage.setItem('user', JSON.stringify(user))
+    this.loginStatus = true
   }
 
   getLoggedUser = (): LoggedUser | null => {

@@ -2,7 +2,7 @@
     [responsiveOptions]="sliderResponsive" [showIndicators]="false">
     <ng-template let-nowPlaying pTemplate="item">
         <div class="border-1 surface-border border-round m-2 text-center card-hover" (click)="goToDetails(nowPlaying)">
-            <div class="mb-3">
+            <div>
                 <img src="{{baseUrlImg}}{{nowPlaying.poster_path}}" [alt]="nowPlaying.title"
                     class="w-6 shadow-2 card-img-top" />
                 <div class="content-details">

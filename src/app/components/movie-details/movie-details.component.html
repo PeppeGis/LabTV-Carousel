@@ -2,7 +2,9 @@
     <div class="main_card">
         <div class="details_container">
             <div class="trailer-container">
-                <iframe [src]="trailerService.sanitizeUrl(keyYT)" title="YouTube video player" frameborder="0"
+                <h1 *ngIf="!keyYT" class="no-trailer">Trailer not available</h1>
+                <iframe *ngIf="keyYT" [src]="trailerService.sanitizeUrl(keyYT)" title="YouTube video player"
+                    frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowfullscreen></iframe>
             </div>
