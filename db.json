@@ -6,6 +6,14 @@
       "firstname": "a",
       "lastname": "a",
       "id": 1
+    },
+    {
+      "email": "b@b.it",
+      "password": "$2a$10$NopstczYu2xvAb1ogB.5Xe0sybnLlrbTgb8lm7tRCTaSfoKChOY6e",
+      "firstname": "b",
+      "lastname": "b",
+      "privacy": true,
+      "id": 2
     }
   ],
   "posts": [],
@@ -14,6 +22,16 @@
       "id": 437615,
       "cover": "/847rDraSwGOSXQOP4TynY3X9cmo.jpg",
       "title": "Gavroche"
+    },
+    {
+      "id": 667538,
+      "cover": "/gPbM0MK8CP8A174rmUwGsADNYKD.jpg",
+      "title": "Transformers: Rise of the Beasts"
+    },
+    {
+      "id": 455476,
+      "cover": "/tBiUXvCqz34GDeuY7jK14QQdtat.jpg",
+      "title": "Knights of the Zodiac"
     }
   ]
 }

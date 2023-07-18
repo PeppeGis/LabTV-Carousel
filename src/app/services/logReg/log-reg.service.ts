@@ -39,7 +39,6 @@ export class LogRegService {
     if (userStorage) {
       return JSON.parse(userStorage) as LoggedUser
     }
-
     return null
   }
 }

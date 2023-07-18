@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Cast, Genre, Movie } from 'src/app/models/movie';
 import { Result } from 'src/app/models/similar-movies';
 import { Trailer } from 'src/app/models/trailer';
@@ -14,7 +14,7 @@ import { TrailerService } from 'src/app/services/trailer/trailer.service';
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent {
-  constructor(protected trailerService: TrailerService, private route: Router, private moviesService: MovieService, private similarMoviesService: SimilarMoviesService, private buyMovies: BuyMovieService) { }
+  constructor(protected trailerService: TrailerService, private route: Router, private moviesService: MovieService, private similarMoviesService: SimilarMoviesService, private buyMovies: BuyMovieService, private router: ActivatedRoute) { }
 
   trailer?: Trailer
   keyYT?: any
@@ -29,15 +29,16 @@ export class MovieDetailsComponent {
   baseUrlImg = 'http://image.tmdb.org/t/p/w185';
 
   ngOnInit(): void {
-    // this.route.params.subscribe({
-    //   next: params => {
-    //     const id = params['id']
-    //     this.getTrailer(id)
-    //     this.getMovieDetails(id)
-    //     this.toSimilarMovies(id)
-    //   }
-    // })
-    this.getAllDetailsMovie()
+    this.router.params.subscribe({
+      next: params => {
+        const id = params['id']
+        this.getAllDetailsMovie(id)
+        // this.getTrailer(id)
+        // this.getMovieDetails(id)
+        // this.toSimilarMovies(id)
+      }
+    })
+    // this.getAllDetailsMovie()
 
     this.sliderResponsive = [
       {
@@ -63,17 +64,24 @@ export class MovieDetailsComponent {
     ];
   }
 
-  getAllDetailsMovie = () => {
+  getAllDetailsMovie = (id: any) => {
     this.moviesService.filmToShow$.subscribe({
       next: (data: any) => {
-        this.detailsMovie = data
-        this.getMovieDetails(this.detailsMovie.id)
-        this.getTrailer(this.detailsMovie.id)
-        this.toSimilarMovies(this.detailsMovie.id)
+        if (data) {
+          this.detailsMovie = data
+          this.getMovieDetails(this.detailsMovie.id)
+          this.getTrailer(this.detailsMovie.id)
+          this.toSimilarMovies(this.detailsMovie.id)
+          localStorage.setItem('id', data.id)
+        } else {
+          const id = localStorage.getItem('id')
+          this.getMovieDetails(id)
+          this.getTrailer(id)
+          this.toSimilarMovies(id)
+        }
       }
     })
   }
-
 
   getMovieDetails = (id: any) => {
 
@@ -126,11 +134,13 @@ export class MovieDetailsComponent {
 
   goToDetails = (movie: Movie) => {
     this.moviesService.filmToShow$.next(movie)
-    this.route.navigateByUrl('/movie-details')
+    // this.route.navigateByUrl('/movie-details')
+    localStorage.setItem('id', movie.id.toString())
+    const id = localStorage.getItem('id')
+    this.route.navigate(['movie-details', id])
   }
 
   buyMovie = (movie: Movie) => {
-    console.log(movie)
     this.buyMovies.postMedia(movie).subscribe({
       next: (data: Movie[]) => {
         console.log('movie post', data);

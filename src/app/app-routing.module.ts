@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: "dashboard", component: DashboardComponent },
   { path: "dashboard-logged", component: DashboardLoggedComponent, canActivate: [loggedInGuard] },
   { path: "search-results", component: SearchResultsComponent },
-  { path: "movie-details", component: MovieDetailsComponent, canActivate: [loggedInGuard] },
+  { path: "movie-details/:id", component: MovieDetailsComponent, canActivate: [loggedInGuard] },
   { path: "now-playing", component: AllNowPlayingComponent },
   { path: "top-rated", component: AllTopRatedComponent },
   { path: "upcoming", component: AllUpcomingComponent },
