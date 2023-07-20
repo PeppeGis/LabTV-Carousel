@@ -7,6 +7,8 @@ import { BuyMovieService } from 'src/app/services/buy-movie/buy-movie.service';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { SimilarMoviesService } from 'src/app/services/similar-movies/similar-movies.service';
 import { TrailerService } from 'src/app/services/trailer/trailer.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalErrorComponent } from '../modal-error/modal-error.component';
 
 @Component({
   selector: 'app-movie-details',
@@ -14,7 +16,7 @@ import { TrailerService } from 'src/app/services/trailer/trailer.service';
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent {
-  constructor(protected trailerService: TrailerService, private route: Router, private moviesService: MovieService, private similarMoviesService: SimilarMoviesService, private buyMovies: BuyMovieService, private router: ActivatedRoute) { }
+  constructor(protected trailerService: TrailerService, private route: Router, private moviesService: MovieService, private similarMoviesService: SimilarMoviesService, private buyMovies: BuyMovieService, private router: ActivatedRoute, private dialogRef: MatDialog) { }
 
   trailer?: Trailer
   keyYT?: any
@@ -145,8 +147,12 @@ export class MovieDetailsComponent {
       next: (data: Movie[]) => {
         console.log('movie post', data);
       },
-      error: err => this.route.navigateByUrl('/unauthorized')
-
+      // error: err => this.route.navigateByUrl('/unauthorized')
+      error: err => {
+        if (err.status = 500) {
+          this.dialogRef.open(ModalErrorComponent)
+        }
+      }
     })
   }
 }

@@ -28,6 +28,8 @@ import { AllUpcomingComponent } from './components/all-upcoming/all-upcoming.com
 import { LoginInterceptor } from './interceptor/login.interceptor';
 import { CartComponent } from './components/cart/cart.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
@@ -60,7 +62,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
     FormsModule,
     ReactiveFormsModule,
     CarouselModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true }

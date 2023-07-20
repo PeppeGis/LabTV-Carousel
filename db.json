@@ -19,19 +19,9 @@
   "posts": [],
   "films-acquistati": [
     {
-      "id": 437615,
-      "cover": "/847rDraSwGOSXQOP4TynY3X9cmo.jpg",
-      "title": "Gavroche"
-    },
-    {
-      "id": 667538,
-      "cover": "/gPbM0MK8CP8A174rmUwGsADNYKD.jpg",
-      "title": "Transformers: Rise of the Beasts"
-    },
-    {
-      "id": 455476,
-      "cover": "/tBiUXvCqz34GDeuY7jK14QQdtat.jpg",
-      "title": "Knights of the Zodiac"
+      "id": 238,
+      "cover": "/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+      "title": "The Godfather"
     }
   ]
 }

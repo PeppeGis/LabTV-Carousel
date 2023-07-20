@@ -24,11 +24,23 @@ $color_2: #000;
     text-align: center;
 }
 
+
+
 .card_datails {
     padding: 20px;
 
     h1 {
-        font-size: 30px;
+        font-size: 40px;
+    }
+
+    h4 {
+        font-size: 1.3rem;
+        margin-top: 16px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        line-height: 25px;
     }
 }
 
