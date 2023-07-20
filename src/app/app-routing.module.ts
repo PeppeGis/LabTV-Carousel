@@ -28,7 +28,7 @@ const routes: Routes = [
   { path: "cart", component: CartComponent, canActivate: [loggedInGuard] },
   { path: "contacts", component: ContactsComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
-  { path: '', redirectTo: '/dashboard-logged', pathMatch: 'full' },
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }
 ];
 

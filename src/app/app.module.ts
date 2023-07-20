@@ -29,6 +29,7 @@ import { LoginInterceptor } from './interceptor/login.interceptor';
 import { CartComponent } from './components/cart/cart.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { ModalAddFilmComponent } from './components/modal-add-film/modal-add-film.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     AllTopRatedComponent,
     AllUpcomingComponent,
     CartComponent,
-    ContactsComponent
+    ContactsComponent,
+    ModalAddFilmComponent
   ],
   imports: [
     BrowserModule,

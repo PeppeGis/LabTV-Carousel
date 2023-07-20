@@ -19,13 +19,6 @@ $color_2: #000;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
 }
 
-.no-trailer {
-    text-transform: uppercase;
-    text-align: center;
-}
-
-
-
 .card_datails {
     padding: 20px;
 
@@ -49,6 +42,15 @@ $color_2: #000;
     overflow: hidden;
     width: 100%;
     padding-top: 56.25%;
+
+    .no-trailer {
+        text-transform: uppercase;
+        text-align: center;
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+    }
 }
 
 iframe {

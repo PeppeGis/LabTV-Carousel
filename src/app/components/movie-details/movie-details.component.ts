@@ -9,6 +9,7 @@ import { SimilarMoviesService } from 'src/app/services/similar-movies/similar-mo
 import { TrailerService } from 'src/app/services/trailer/trailer.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalErrorComponent } from '../modal-error/modal-error.component';
+import { ModalAddFilmComponent } from '../modal-add-film/modal-add-film.component';
 
 @Component({
   selector: 'app-movie-details',
@@ -26,6 +27,8 @@ export class MovieDetailsComponent {
   directing?: string
   similarMovies: Array<Result> = []
 
+  errorTrailer: boolean = false
+
   sliderResponsive: any[] | undefined;
 
   baseUrlImg = 'http://image.tmdb.org/t/p/w185';
@@ -35,12 +38,8 @@ export class MovieDetailsComponent {
       next: params => {
         const id = params['id']
         this.getAllDetailsMovie(id)
-        // this.getTrailer(id)
-        // this.getMovieDetails(id)
-        // this.toSimilarMovies(id)
       }
     })
-    // this.getAllDetailsMovie()
 
     this.sliderResponsive = [
       {
@@ -115,10 +114,19 @@ export class MovieDetailsComponent {
         const officialTrailerVideo = data.results.find((video: any) => video.name === "Official Trailer")
         if (officialTrailerVideo) {
           this.keyYT = officialTrailerVideo.key;
-        } else if (!officialTrailerVideo) {
-          const TrailerVideo = data.results.find((video: any) => video.name.toLowerCase().includes("trailer"))
-          this.keyYT = TrailerVideo.key
+          this.errorTrailer = false
+        } else {
+          const officialTrailerVideo = data.results.find((video: any) => video.name.toLowerCase().includes("trailer"))
+          if (officialTrailerVideo && officialTrailerVideo.key) {
+            this.keyYT = officialTrailerVideo.key
+            this.errorTrailer = false
+          } else {
+            this.errorTrailer = true
+          }
         }
+      },
+      error: err => {
+        this.errorTrailer = true
       }
     })
   }
@@ -136,7 +144,6 @@ export class MovieDetailsComponent {
 
   goToDetails = (movie: Movie) => {
     this.moviesService.filmToShow$.next(movie)
-    // this.route.navigateByUrl('/movie-details')
     localStorage.setItem('id', movie.id.toString())
     const id = localStorage.getItem('id')
     this.route.navigate(['movie-details', id])
@@ -145,9 +152,10 @@ export class MovieDetailsComponent {
   buyMovie = (movie: Movie) => {
     this.buyMovies.postMedia(movie).subscribe({
       next: (data: Movie[]) => {
-        console.log('movie post', data);
+        if (data) {
+          this.dialogRef.open(ModalAddFilmComponent)
+        }
       },
-      // error: err => this.route.navigateByUrl('/unauthorized')
       error: err => {
         if (err.status = 500) {
           this.dialogRef.open(ModalErrorComponent)
