@@ -12,6 +12,8 @@ import { SearchBarService } from 'src/app/services/search-bar/search-bar.service
 export class HeaderComponent {
 
   constructor(private searchService: SearchBarService, private route: Router, private moviesService: MovieService, public logRegService: LogRegService) {
+    logRegService.loginLogout()
+    logRegService.nameUser()
   }
 
   // @Input() movie: Movie
@@ -39,5 +41,4 @@ export class HeaderComponent {
     this.logRegService.logout()
     this.route.navigateByUrl('login')
   }
-
 }

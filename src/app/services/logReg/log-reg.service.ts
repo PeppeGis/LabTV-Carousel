@@ -16,6 +16,8 @@ export class LogRegService {
 
   token$ = new Subject
 
+  username: string = ''
+
   register = (user: RegisterDto): Observable<LoggedUser> => {
     return this.http.post<LoggedUser>(this.url + "users", user)
   }
@@ -27,13 +29,10 @@ export class LogRegService {
   logout = () => {
     localStorage.removeItem('user')
     this.loginLogout()
-    // this.loginStatus = false
   }
 
   setLoggedUser = (user: LoggedUser) => {
     localStorage.setItem('user', JSON.stringify(user))
-    this.loginLogout()
-    // this.loginStatus = true
   }
 
   getLoggedUser = (): LoggedUser | null => {
@@ -50,5 +49,10 @@ export class LogRegService {
     } else {
       this.loginStatus = false
     }
+  }
+
+  nameUser = () => {
+    const name = JSON.parse(localStorage.getItem('user'))
+    this.username = name.user.firstname
   }
 }
