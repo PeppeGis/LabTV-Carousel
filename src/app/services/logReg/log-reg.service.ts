@@ -26,12 +26,14 @@ export class LogRegService {
 
   logout = () => {
     localStorage.removeItem('user')
-    this.loginStatus = false
+    this.loginLogout()
+    // this.loginStatus = false
   }
 
   setLoggedUser = (user: LoggedUser) => {
     localStorage.setItem('user', JSON.stringify(user))
-    this.loginStatus = true
+    this.loginLogout()
+    // this.loginStatus = true
   }
 
   getLoggedUser = (): LoggedUser | null => {
@@ -40,5 +42,13 @@ export class LogRegService {
       return JSON.parse(userStorage) as LoggedUser
     }
     return null
+  }
+
+  loginLogout = () => {
+    if (localStorage.getItem('user')) {
+      this.loginStatus = true
+    } else {
+      this.loginStatus = false
+    }
   }
 }

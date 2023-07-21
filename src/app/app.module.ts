@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,9 +23,6 @@ import { MovieDetailsComponent } from './components/movie-details/movie-details.
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { CardSearchResultsComponent } from './components/card-search-results/card-search-results.component';
-import { AllNowPlayingComponent } from './components/all-now-playing/all-now-playing.component';
-import { AllTopRatedComponent } from './components/all-top-rated/all-top-rated.component';
-import { AllUpcomingComponent } from './components/all-upcoming/all-upcoming.component';
 import { LoginInterceptor } from './interceptor/login.interceptor';
 import { CartComponent } from './components/cart/cart.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
@@ -51,9 +49,6 @@ import { ModalAddFilmComponent } from './components/modal-add-film/modal-add-fil
     MovieDetailsComponent,
     SearchResultsComponent,
     CardSearchResultsComponent,
-    AllNowPlayingComponent,
-    AllTopRatedComponent,
-    AllUpcomingComponent,
     CartComponent,
     ContactsComponent,
     ModalAddFilmComponent
@@ -65,7 +60,8 @@ import { ModalAddFilmComponent } from './components/modal-add-film/modal-add-fil
     ReactiveFormsModule,
     CarouselModule,
     HttpClientModule,
-    MatDialogModule
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoginInterceptor, multi: true }

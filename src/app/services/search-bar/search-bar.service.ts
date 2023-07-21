@@ -12,15 +12,13 @@ export class SearchBarService {
   constructor(private http: HttpClient) {
   }
 
-  searchValue$ = new BehaviorSubject<string>('')
-
-  pageFilm = 1
+  searchValue: string = ''
   moviesResults: Movie[] = []
 
   urlSearch = `${environment.basicUrlSearch}?api_key=${environment.apikey}`
 
-  getSearched = (query?: string) => {
+  getSearched = (query?: string | any, page?: number) => {
     // ++this.pageFilm
-    return this.http.get(`${this.urlSearch}&query=${this.searchValue$.value}&page=${this.pageFilm}}`)
+    return this.http.get(`${this.urlSearch}&query=${query}&page=${page}}`)
   }
 }

@@ -16,7 +16,9 @@ export class CardSearchResultsComponent {
 
   goToDetails = (movie: Movie) => {
     this.moviesService.filmToShow$.next(movie)
-    this.router.navigateByUrl('/movie-details')
+    localStorage.setItem('id', movie.id.toString())
+    const id = localStorage.getItem('id')
+    this.router.navigate(['movie-details', id])
   }
 
 }

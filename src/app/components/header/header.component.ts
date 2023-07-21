@@ -15,13 +15,13 @@ export class HeaderComponent {
   }
 
   // @Input() movie: Movie
+  page: number = 1
 
   onSearch = (value: string) => {
-    this.searchService.searchValue$.next(value)
-    this.searchService.getSearched(value).subscribe({
+    this.searchService.getSearched(value, this.page).subscribe({
       next: (data: any) => {
         if (value) {
-          console.log(this.searchService.searchValue$)
+          this.searchService.searchValue = value
           this.searchService.moviesResults = data.results
           this.route.navigateByUrl('/search-results')
         } else {

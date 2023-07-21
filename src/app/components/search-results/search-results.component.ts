@@ -10,9 +10,16 @@ export class SearchResultsComponent {
 
   constructor(public searchService: SearchBarService) { }
 
-  getMoreMovieFromService = () => {
-    this.searchService.getSearched().subscribe({
-      next: (data: any) => this.searchService.moviesResults = [...this.searchService.moviesResults, ...data.results],
+  page: number = 1
+
+  loadMore = () => {
+    this.page++
+    this.getMoreMovieFromService(this.page)
+  }
+
+  getMoreMovieFromService = (page: number) => {
+    this.searchService.getSearched(this.searchService.searchValue, page).subscribe({
+      next: (data: any) => this.searchService.moviesResults = this.searchService.moviesResults?.concat(data.results),
       error: err => console.log(err)
     })
   }
