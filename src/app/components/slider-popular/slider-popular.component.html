@@ -1,7 +1,7 @@
 <p-carousel [value]="moviesService.popular" [numVisible]="1" [numScroll]="1" [circular]="true" [showIndicators]="false"
     [autoplayInterval]="3500">
     <ng-template let-popular pTemplate="item">
-        <div class="border-1 surface-border border-round m-2 text-center">
+        <div class="border-1 surface-border border-round text-center margin">
             <div class="mb-3">
                 <img src="{{baseUrlImg}}{{popular.backdrop_path}}" [alt]="popular.title"
                     class="w-6 shadow-2 card-img-top" (click)="goToDetails(popular)" />

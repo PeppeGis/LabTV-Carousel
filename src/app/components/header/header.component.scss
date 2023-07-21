@@ -21,16 +21,47 @@ a {
 }
 
 button {
-    width: 40px;
+    max-width: 200px;
     margin-left: 5px;
     border: none;
     background-color: transparent;
+    display: flex;
+    align-items: center;
+    color: #3b3b3b;
 
-    &:hover .bi {
-        font-size: 28px;
+    .bi {
+        font-size: 30px;
+    }
+
+    &:hover {
+        color: #000;
     }
 
     &:focus {
         outline: none !important;
+    }
+}
+
+.user {
+    font-size: 15px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+
+    .collapse {
+        .nav-item {
+            .dropdown {
+                .dropdown-toggle {
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
     }
 }

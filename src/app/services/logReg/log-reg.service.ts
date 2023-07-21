@@ -53,6 +53,8 @@ export class LogRegService {
 
   nameUser = () => {
     const name = JSON.parse(localStorage.getItem('user'))
-    this.username = name.user.firstname
+    if (name) {
+      this.username = name.user.firstname
+    }
   }
 }

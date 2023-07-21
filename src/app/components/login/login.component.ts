@@ -29,6 +29,7 @@ export class LoginComponent {
       next: (user: LoggedUser) => {
         this.logRegService.setLoggedUser(user)
         this.logRegService.loginLogout()
+        this.logRegService.nameUser()
         this.route.navigateByUrl('/dashboard-logged')
       },
       error: err => this.messageError = err.error

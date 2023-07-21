@@ -1,27 +1,14 @@
 {
   "users": [
     {
-      "email": "a@a.it",
-      "password": "$2a$10$jMpTsWPR.m8m2iW9H.DVnuAd32.r0Vxnbf02mIoLKe7shPFyU0jaq",
-      "firstname": "a",
-      "lastname": "a",
-      "id": 1
-    },
-    {
-      "email": "b@b.it",
-      "password": "$2a$10$NopstczYu2xvAb1ogB.5Xe0sybnLlrbTgb8lm7tRCTaSfoKChOY6e",
-      "firstname": "b",
-      "lastname": "b",
+      "email": "g@gmail.com",
+      "password": "$2a$10$GvJyLHt7uUPiy/nD6aPtsufUpnrzpDEHD.3ldEkoRrmO2aYJK4clq",
+      "firstname": "Giuseppe",
+      "lastname": "Gisotti",
       "privacy": true,
-      "id": 2
+      "id": 1
     }
   ],
   "posts": [],
-  "films-acquistati": [
-    {
-      "id": 447365,
-      "cover": "/r2J02Z2OpNTctfOSN1Ydgii51I3.jpg",
-      "title": "Guardians of the Galaxy Vol. 3"
-    }
-  ]
+  "films-acquistati": []
 }

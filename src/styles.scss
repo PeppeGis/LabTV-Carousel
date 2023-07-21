@@ -4,9 +4,12 @@
     font-family: "Poppins", sans-serif;
 }
 
-body {
-    // background: #222222;
-    background: #000;
+html {
+    height: 100%;
+
+    body {
+        height: 100%;
+        margin: 0;
+        background: #000;
+    }
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
