@@ -11,12 +11,13 @@
             </div>
             <div class="container">
                 <div class="row card_datails">
-                    <div class="col-8">
+                    <!-- <div class="card_datails"> -->
+                    <div class="col-12 col-sm-12 col-md-8">
                         <!-- <p>ID: {{detailsMovie?.id}}</p> -->
                         <h1 class="font-weight-bold mt-3">{{detailsMovie?.title}}</h1>
                         <p class="lh-lg mt-4">{{detailsMovie?.overview}}</p>
                     </div>
-                    <div class="col-4">
+                    <div class="col-12 col-sm-12 col-md-4 cast">
                         <h4 class="font-weight-bold">Cast:</h4>
                         <p *ngFor="let cast of acting" class="mb-1 font-italic">{{cast.name}}</p>
                         <h4 class="mt-4 font-weight-bold">Director: </h4>
@@ -29,6 +30,7 @@
                             </button>
                         </div>
                     </div>
+                    <!-- </div> -->
                 </div>
                 <h4 class="mt-4 mb-4 text-center">Similar: </h4>
                 <p-carousel [value]="similarMovies" [numVisible]="5" [numScroll]="1" [circular]="true"

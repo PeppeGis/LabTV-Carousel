@@ -1,95 +1,94 @@
 $color_1: #fff;
 $color_2: #000;
 
-/* .poster {
-    box-shadow: 0 5px 20px 3px rgba(0, 0, 0, 0.6);
-} */
 .wrapper {
-    background: #222222;
     margin-top: 69px;
-}
 
-.main_card {
-    color: $color_1;
-    width: 60%;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    background: #222222;
-    -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
-}
-
-.card_datails {
-    padding: 20px;
-
-    h1 {
-        font-size: 40px;
+    img {
+        cursor: pointer;
     }
 
-    h4 {
-        font-size: 1.3rem;
-        margin-top: 16px;
+    .main_card {
+        color: $color_1;
+        width: 60%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+
+        .details_container {
+            .trailer-container {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                padding-top: 56.25%;
+
+                .no-trailer {
+                    text-transform: uppercase;
+                    text-align: center;
+                    margin: auto;
+                    position: absolute;
+                    top: 50%;
+                    width: 100%;
+                }
+
+                iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    bottom: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .container {
+                .card_datails {
+                    padding: 20px;
+
+                    h1 {
+                        font-size: 40px;
+                    }
+
+                    h4 {
+                        font-size: 1.3rem;
+                        margin-top: 16px;
+                    }
+
+                    p {
+                        font-size: 1.2rem;
+                        line-height: 25px;
+                    }
+
+                    .cast {
+                        .button {
+                            display: flex;
+                            justify-content: left;
+
+                            button {
+                                max-width: 100px;
+                                width: 80px;
+                                color: $color_2;
+                                font-weight: bold;
+                                border: none;
+                                padding: 10px;
+                                font-size: 1em;
+                                margin-top: 30px;
+                                margin-bottom: 20px;
+                                margin-left: 10px;
+                                background: #ffc800;
+                                border-radius: 12px;
+                                box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+                                transition: 200ms ease-in-out;
+
+                                &:hover {
+                                    transform: scale(1.1);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
-
-    p {
-        font-size: 1.2rem;
-        line-height: 25px;
-    }
-}
-
-.trailer-container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    padding-top: 56.25%;
-
-    .no-trailer {
-        text-transform: uppercase;
-        text-align: center;
-        margin: auto;
-        position: absolute;
-        top: 50%;
-        width: 100%;
-    }
-}
-
-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-}
-
-button {
-    max-width: 100px;
-    width: 80px;
-    color: $color_2;
-    font-weight: bold;
-    border: none;
-    padding: 10px;
-    font-size: 1em;
-    margin-top: 30px;
-    margin-bottom: 20px;
-    margin-left: 10px;
-    background: #ffc800;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    transition: 200ms ease-in-out;
-
-    &:hover {
-        transform: scale(1.1);
-    }
-}
-
-.button {
-    display: flex;
-    justify-content: left;
-}
-
-img.similar {
-    cursor: pointer;
 }
