@@ -28,6 +28,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalAddFilmComponent } from './components/modal-add-film/modal-add-film.component';
+import { ModalRegComponent } from './components/modal-reg/modal-reg.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { ModalAddFilmComponent } from './components/modal-add-film/modal-add-fil
     CardSearchResultsComponent,
     CartComponent,
     ContactsComponent,
-    ModalAddFilmComponent
+    ModalAddFilmComponent,
+    ModalRegComponent
   ],
   imports: [
     BrowserModule,

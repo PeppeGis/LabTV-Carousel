@@ -18,7 +18,7 @@ export class CartComponent {
   getBuyMedia = () => {
     this.buyFilm.getMedia().subscribe({
       next: (films: any) => {
-        console.log(films)
+        // console.log(films)
         this.buyedMovies = films
       }
     })

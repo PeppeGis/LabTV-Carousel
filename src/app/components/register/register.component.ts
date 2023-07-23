@@ -3,6 +3,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoggedUser } from 'src/app/models/user';
 import { LogRegService } from 'src/app/services/logReg/log-reg.service';
+import { ModalRegComponent } from '../modal-reg/modal-reg.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +13,7 @@ import { LogRegService } from 'src/app/services/logReg/log-reg.service';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private logRegService: LogRegService, private route: Router) { }
+  constructor(private logRegService: LogRegService, private route: Router, private dialogRef: MatDialog) { }
 
   registerForm: FormGroup
   messageError: string = ''
@@ -41,7 +43,7 @@ export class RegisterComponent implements OnInit {
       next: (data: LoggedUser) => {
         // console.log(data);
         this.registerForm.reset()
-        this.route.navigateByUrl('/login')
+        this.dialogRef.open(ModalRegComponent)
       },
       error: err => this.messageError = err.error
     })
