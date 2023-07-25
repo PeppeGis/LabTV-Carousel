@@ -1,46 +1,5 @@
 {
-  "users": [
-    {
-      "email": "g@gmail.com",
-      "password": "$2a$10$GvJyLHt7uUPiy/nD6aPtsufUpnrzpDEHD.3ldEkoRrmO2aYJK4clq",
-      "firstname": "Giuseppe",
-      "lastname": "Gisotti",
-      "privacy": true,
-      "id": 1
-    },
-    {
-      "email": "f@gmail.com",
-      "password": "$2a$10$/5yEHDlbNNcL.tpArhtR/.d547NTYogoo0j.dOT1BdbUtFlllKioq",
-      "firstname": "Francesco",
-      "lastname": "Gisotti",
-      "privacy": true,
-      "id": 2
-    },
-    {
-      "email": "m@gmail.com",
-      "password": "$2a$10$azG5eIK8OqEIDNb4hGSGi..kxwET7xq8DbcV7lxjceFMjUswt34Z2",
-      "firstname": "Mario",
-      "lastname": "Rossi",
-      "privacy": true,
-      "id": 3
-    },
-    {
-      "email": "gv@gmail.com",
-      "password": "$2a$10$Djob9Mpkoi7ZZb5ztgdkvOCeKlyD/szk5u4guFlYqa6h4z1/2ZhHK",
-      "firstname": "Giuseppe",
-      "lastname": "Verdi",
-      "privacy": true,
-      "id": 4
-    },
-    {
-      "email": "fb@gmail.com",
-      "password": "$2a$10$7xfx38D94EzdarRMh/6V.OCQQhLcxiUBTYp07wEE8zEtR0xlXALi2",
-      "firstname": "Francesco",
-      "lastname": "Bianchi",
-      "privacy": true,
-      "id": 5
-    }
-  ],
+  "users": [],
   "posts": [],
   "films-acquistati": []
 }

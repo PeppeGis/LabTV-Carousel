@@ -18,6 +18,8 @@ export class LogRegService {
 
   username: string = ''
 
+  message: string = ''
+
   register = (user: RegisterDto): Observable<LoggedUser> => {
     return this.http.post<LoggedUser>(this.url + "users", user)
   }

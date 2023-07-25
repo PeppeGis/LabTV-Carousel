@@ -9,9 +9,9 @@
             <img class="card-img-top img-fluid" src="http://image.tmdb.org/t/p/original{{movie.cover}}"
                 alt="{{movie.title}}">
             <div class="card-body">
-                <h5 class="card-title text-center">{{movie.title}}</h5>
+                <h2 class="card-title text-center mt-1">{{movie.title}}</h2>
+                <button (click)="deleteMovieCart(movie.id)" class="btn btn-danger"><i class="bi bi-trash"></i></button>
             </div>
-            <button (click)="deleteMovieCart(movie.id)" class="btn btn-danger m-1"><i class="bi bi-trash"></i></button>
         </div>
     </div>
 </div>

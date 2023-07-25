@@ -29,6 +29,7 @@ import { ContactsComponent } from './components/contacts/contacts.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ModalAddFilmComponent } from './components/modal-add-film/modal-add-film.component';
 import { ModalRegComponent } from './components/modal-reg/modal-reg.component';
+import { ModalContactsComponent } from './components/modal-contacts/modal-contacts.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { ModalRegComponent } from './components/modal-reg/modal-reg.component';
     CartComponent,
     ContactsComponent,
     ModalAddFilmComponent,
-    ModalRegComponent
+    ModalRegComponent,
+    ModalContactsComponent,
   ],
   imports: [
     BrowserModule,

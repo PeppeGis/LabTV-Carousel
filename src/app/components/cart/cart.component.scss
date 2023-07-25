@@ -5,9 +5,38 @@ $font-family_1: 'Montserrat', sans-serif;
         .card {
             margin-top: 115px;
             margin-bottom: 50px;
+            margin-right: 20px;
+            position: relative;
 
-            button:focus {
-                box-shadow: none;
+            button {
+                width: 100%;
+
+                &:focus {
+                    box-shadow: none;
+                }
+            }
+
+            .card-body {
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                text-align: center;
+                color: #000;
+                transition: .4s;
+                background-color: #fff;
+                opacity: 0;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                border: 2px solid #fff;
+                border-top: none;
+                padding: 1px;
+            }
+
+            &:hover>.card-body {
+                top: 99%;
+                color: #000;
+                overflow: hidden;
+                opacity: 1;
             }
         }
 
