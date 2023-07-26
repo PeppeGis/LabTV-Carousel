@@ -3,8 +3,9 @@
         <div class="details_container">
             <div class="trailer-container" [ngClass]="{'padding':errorTrailer}">
                 <img *ngIf="errorTrailer" src="../../../assets/img/trailer.png" alt="" class="img-fluid">
-                <!-- <h1 *ngIf="errorTrailer" class="no-trailer font-weight-bold">Sorry <br> the trailer is not available
-                </h1> -->
+                <div *ngIf="loadingTrailer" class="spinner-border text-warning text-center" role="status">
+                    <span class="sr-only">Loading...</span>
+                </div>
                 <iframe *ngIf="!errorTrailer" [src]="trailerService.sanitizeUrl(keyYT)" title="YouTube video player"
                     frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

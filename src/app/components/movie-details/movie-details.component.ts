@@ -28,6 +28,7 @@ export class MovieDetailsComponent {
   similarMovies: Array<Result> = []
 
   errorTrailer: boolean = false
+  loadingTrailer: boolean = true
 
   sliderResponsive: any[] | undefined;
 
@@ -111,6 +112,9 @@ export class MovieDetailsComponent {
   getTrailer = (id: any) => {
     this.trailerService.getUrlTrailer(id).subscribe({
       next: (data: any) => {
+        setTimeout(() => {
+          this.loadingTrailer = false
+        }, 100000);
         const officialTrailerVideo = data.results.find((video: any) => video.name === "Official Trailer")
         if (officialTrailerVideo) {
           this.keyYT = officialTrailerVideo.key;
